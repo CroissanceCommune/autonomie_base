@@ -4,7 +4,7 @@
 #       * Arezki Feth <f.a@majerti.fr>;
 #       * Miotte Julien <j.m@majerti.fr>;
 import datetime
-from autonomie.utils import date
+from autonomie_base.utils import date
 
 
 def test_str_to_date():
