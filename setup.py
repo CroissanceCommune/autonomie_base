@@ -26,7 +26,7 @@ entry_points = {
 }
 
 setup(name='autonomie_base',
-      version='0.1',
+      version='1.0',
       description='autonomie_base',
       long_description=README,
       license='GPLv3',
