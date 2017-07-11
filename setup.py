@@ -26,7 +26,7 @@ entry_points = {
 }
 
 setup(name='autonomie_base',
-      version='1.0',
+      version='1.1',
       description='autonomie_base',
       long_description=README,
       license='GPLv3',
@@ -39,7 +39,7 @@ setup(name='autonomie_base',
       ],
       author='Majerti',
       author_email='equipe@majerti.fr',
-      url='',
+      url='https://github.com/CroissanceCommune/autonomie_celery',
       keywords='web wsgi bfg pylons pyramid autonomie',
       packages=find_packages(),
       include_package_data=True,
