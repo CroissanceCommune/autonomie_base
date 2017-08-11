@@ -27,10 +27,10 @@ def set_export_formatters():
         format_date,
         format_datetime,
     )
-    from autonomie.utils.strings import (
+    from autonomie_base.utils.strings import (
         format_quantity,
     )
-    from autonomie.export.utils import format_boolean
+    from autonomie_base.utils.export import format_boolean
 
     FORMATTERS_REGISTRY.add_formatter(
         Date, format_date, 'py3o'
@@ -75,7 +75,7 @@ def set_xls_formats():
     FORMAT_REGISTRY.add_item(DateTime, "dd/mm/yyyy hh:mm")
 
 
-def customize_sqla_tools(config=None):
+def configure_export():
     """
     Customize sqla_inspect tools
     """
