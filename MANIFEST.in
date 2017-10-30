@@ -1,0 +1,2 @@
+include *.txt *.ini *.cfg *.rst CURRENT_VERSION
+recursive-include autonomie_celery *.ico *.png *.css *.gif *.jpg *.pt *.txt *.mak *.mako *.js *.html *.xml *.pt *.eot *.svg *.otf *.ttf *.woff
