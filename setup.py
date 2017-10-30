@@ -6,13 +6,12 @@ here = os.path.abspath(os.path.dirname(__file__))
 with open(os.path.join(here, 'README.txt')) as f:
     README = f.read()
 
-requires = [
-    'pyramid',
-    'pyramid_tm',
-    'SQLAlchemy',
-    'transaction',
-    'zope.sqlalchemy',
-    ]
+with open(os.path.join(here, 'requirements.txt')) as f:
+    requires = f.read()
+
+with open(os.path.join(here, 'CURRENT_VERSION')) as f:
+    current_version = f.read().splitlines()[0].strip()
+
 
 tests_require = [
     'WebTest >= 1.3.1',  # py3 compat
@@ -26,7 +25,7 @@ entry_points = {
 }
 
 setup(name='autonomie_base',
-      version='1.3',
+      version=current_version,
       description='autonomie_base',
       long_description=README,
       license='GPLv3',
