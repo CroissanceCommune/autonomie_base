@@ -6,6 +6,9 @@ here = os.path.abspath(os.path.dirname(__file__))
 with open(os.path.join(here, 'README.txt')) as f:
     README = f.read()
 
+with open(os.path.join(here, 'CURRENT_VERSION')) as f:
+    current_version = f.read().splitlines()[0].strip()
+
 requires = [
     'pyramid',
     'pyramid_tm',
@@ -26,7 +29,7 @@ entry_points = {
 }
 
 setup(name='autonomie_base',
-      version='1.2',
+      version=current_version,
       description='autonomie_base',
       long_description=README,
       license='GPLv3',
