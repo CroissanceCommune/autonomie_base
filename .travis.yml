@@ -16,4 +16,3 @@ deploy:
         secure: bd3qONDmshGt9nWNS0GpAnUvt8E/hW2ZWJlBLqQ5qvme+V6QvLbJ8uW9UkCC4kAwoNhgnC7wpT9ENWtcWVGPRvrxO89s8R3amyCd4Lb6d6mY0NGtvM5d5+A9PiLByXNGaL2KL/FpVPoiDdY6kb0Rj5PcmvTFGJJBYxhaV5UQjGhGi3sk3ta661quILg5bXiqYjNleb398eBroRv+5wiiXr/BEu9nKL2PKAc8gPuhsBkZEq39ob7fxltzrSQDR+0r57wBg/BKVS3sGPjL4IWji3URdacV1SmhJ00CSBu+jXDD4RbGnJRhbaPP+If4Lxr80pU08/jUa+UD57kc7grlfvwcuZgY3z+8ZavY+fNolqR53KbP5aW50ewR4LKc1TFCy7VpT9Y+Ok+n7uXK0VFQWWdoClVuL/1g163219we0lteZ2kbtthOWtlo4Yg5igkCV43JXUBYg+9fOR+HdAwDkXlGtAiTO6tr40cNA6VWkTe2guXFV+AN3UH9pe/LqMU0YqjKcEjaNgLLqCB9d5xTONoDJiwCCrGt3w5wkm/8dRmq3ef6pPguhpA203mONlXugIi5jjlfh9FgL7AQFhT3l3fhdp6Rw/atfQyKd4L6DJ9etkh4gIZredEPUlMFRKNw5k7SnNEKQY5wAPbeBvOF+Z4WduccYhKYQZ2Bh6MKzh0=
     on:
         tags: true
-        all_branches: true
