@@ -25,7 +25,10 @@ Date manipulation utilities
 import datetime
 
 
-def str_to_date(str_date, formats=("%d/%m/%Y", "%d-%m-%Y", "%Y-%m-%d")):
+def str_to_date(
+    str_date,
+    formats=("%d/%m/%Y", "%d-%m-%Y", "%d/%m/%y", "%Y-%m-%d")
+):
     """
     Transform a date string to a date object
 
