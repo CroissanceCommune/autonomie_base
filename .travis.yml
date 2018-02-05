@@ -1,29 +1,28 @@
 language: python
-
 python:
 - 2.7
-
 install:
 - pip install -r requirements.txt .
-
 script: py.test
-
-branches:
-    only:
-    - master
-    - /\d+\.\d+\.\d+[a-z]/
-
 notifications:
   irc:
     channels:
     - irc.freenode.org#majerteam-travis
     on_success: change
-
+adeploy:
+  provider: pypi
+  distributions: sdist bdist_wheel
+  user: tonthon21
+  password:
+    secure: bd3qONDmshGt9nWNS0GpAnUvt8E/hW2ZWJlBLqQ5qvme+V6QvLbJ8uW9UkCC4kAwoNhgnC7wpT9ENWtcWVGPRvrxO89s8R3amyCd4Lb6d6mY0NGtvM5d5+A9PiLByXNGaL2KL/FpVPoiDdY6kb0Rj5PcmvTFGJJBYxhaV5UQjGhGi3sk3ta661quILg5bXiqYjNleb398eBroRv+5wiiXr/BEu9nKL2PKAc8gPuhsBkZEq39ob7fxltzrSQDR+0r57wBg/BKVS3sGPjL4IWji3URdacV1SmhJ00CSBu+jXDD4RbGnJRhbaPP+If4Lxr80pU08/jUa+UD57kc7grlfvwcuZgY3z+8ZavY+fNolqR53KbP5aW50ewR4LKc1TFCy7VpT9Y+Ok+n7uXK0VFQWWdoClVuL/1g163219we0lteZ2kbtthOWtlo4Yg5igkCV43JXUBYg+9fOR+HdAwDkXlGtAiTO6tr40cNA6VWkTe2guXFV+AN3UH9pe/LqMU0YqjKcEjaNgLLqCB9d5xTONoDJiwCCrGt3w5wkm/8dRmq3ef6pPguhpA203mONlXugIi5jjlfh9FgL7AQFhT3l3fhdp6Rw/atfQyKd4L6DJ9etkh4gIZredEPUlMFRKNw5k7SnNEKQY5wAPbeBvOF+Z4WduccYhKYQZ2Bh6MKzh0=
+  on:
+    tags: true
 deploy:
-    provider: pypi
-    user: tonthon21
-    password:
-        secure: bd3qONDmshGt9nWNS0GpAnUvt8E/hW2ZWJlBLqQ5qvme+V6QvLbJ8uW9UkCC4kAwoNhgnC7wpT9ENWtcWVGPRvrxO89s8R3amyCd4Lb6d6mY0NGtvM5d5+A9PiLByXNGaL2KL/FpVPoiDdY6kb0Rj5PcmvTFGJJBYxhaV5UQjGhGi3sk3ta661quILg5bXiqYjNleb398eBroRv+5wiiXr/BEu9nKL2PKAc8gPuhsBkZEq39ob7fxltzrSQDR+0r57wBg/BKVS3sGPjL4IWji3URdacV1SmhJ00CSBu+jXDD4RbGnJRhbaPP+If4Lxr80pU08/jUa+UD57kc7grlfvwcuZgY3z+8ZavY+fNolqR53KbP5aW50ewR4LKc1TFCy7VpT9Y+Ok+n7uXK0VFQWWdoClVuL/1g163219we0lteZ2kbtthOWtlo4Yg5igkCV43JXUBYg+9fOR+HdAwDkXlGtAiTO6tr40cNA6VWkTe2guXFV+AN3UH9pe/LqMU0YqjKcEjaNgLLqCB9d5xTONoDJiwCCrGt3w5wkm/8dRmq3ef6pPguhpA203mONlXugIi5jjlfh9FgL7AQFhT3l3fhdp6Rw/atfQyKd4L6DJ9etkh4gIZredEPUlMFRKNw5k7SnNEKQY5wAPbeBvOF+Z4WduccYhKYQZ2Bh6MKzh0=
-    on:
-        tags: true
-        branch: master
+  provider: pypi
+  user: tonthon21
+  password:
+    secure: f8v5DrLDBguTGfG6UN+Kcqk6Y6xUv0NmJ3Qm7vwhJZs8KfQkz1D0zX/u/tjVIE7UaexeJdp/AR3AsTOLNqCRT3IiU8+nWKAMioF+EYRymQ064pCJX73MIwAe0hll6GcTW9IJLHVhM8uBkzkS84xpr7hTwOqmN15OyLo8xExyDKM0wfC9kLkdagydGymRvIMFP0c4ZGsFqXS72zbpU/n55jUvilmpg/PMlAOAzNMe1VYfO98wmFS/4Bi2YLIxGxxU9Exuqzs3mtOLLuXZGDi0c5LiDMfJGuTdGBGcgxP8ttdF53FJldNYYN1rmAdDcIP/kUX4lIobfj3cgKq/tRpTgV4DGh0nRfFKb9MZXuT4XTC4XCKgDeDeqT+Rm4mlxb8ClzTE2HvTNCHJqfRE0h8dFHILapcucWOruuaH8mK3ytzdg8yymMIT4uMM3fvFPaE8Q9KqzlCYdyxIdKUOY+7zqTl7RB95+A7LSuOIcp+DGcGYxZL1phay37qoAORsbh7O3kVVqKVCEi30E42DWS8zW5oSifEHWN2j10Z/T3kjizNhRHamYBrlwHkrTD3Xztr/9FjuHzfzVr/FMllfnhnlya48Bjr17fqhyZiE91dy3DCCJxlKO4FKmBK8m7J8nyX0wYNsJSFgL/XcdyR6saz/o934Rr8V80S1dXktAuU3NbY=
+  on:
+    tags: true
+    distributions: sdist bdist_wheel
+    repo: CroissanceCommune/autonomie_base
