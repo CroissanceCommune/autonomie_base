@@ -4,6 +4,7 @@
 #       * Arezki Feth <f.a@majerti.fr>;
 #       * Miotte Julien <j.m@majerti.fr>;
 import logging
+import urllib
 from pyramid_mailer import get_mailer
 from pyramid_mailer.message import (
     Message,
@@ -37,6 +38,7 @@ def format_link(settings, link):
     """
     bounce_url = settings.get("mail.bounce_url")
     if bounce_url:
+        link = urllib.quote(link)
         url = u"http://{0}/?url={1}".format(bounce_url, link)
     else:
         url = link
