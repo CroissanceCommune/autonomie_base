@@ -1,6 +1,11 @@
 Autonomie base software
 =======================
 
+.. image::
+    https://secure.travis-ci.org/CroissanceCommune/autonomie_base.png?branch=master
+   :target: http://travis-ci.org/CroissanceCommune/autonomie_base
+   :alt: Travis-ci: continuous integration status.
+
 Provide :
 - common models
 - common tools
