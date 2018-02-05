@@ -1,14 +1,24 @@
 language: python
+
 python:
 - 2.7
+
 install:
 - pip install -r requirements.txt .
+
 script: py.test
+
+branches:
+    only:
+    - master
+    - /\d+\.\d+\.\d+[a-z]/
+
 notifications:
   irc:
     channels:
     - irc.freenode.org#majerteam-travis
     on_success: change
+
 deploy:
     provider: pypi
     user: tonthon21
