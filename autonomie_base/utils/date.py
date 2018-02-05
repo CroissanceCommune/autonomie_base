@@ -25,22 +25,24 @@ Date manipulation utilities
 import datetime
 
 
-def str_to_date(str_date):
+def str_to_date(str_date, formats=("%d/%m/%Y", "%d-%m-%Y", "%Y-%m-%d")):
     """
     Transform a date string to a date object
+
+    :param str str_date: The date string
+    :param tuple formats: List of date format to try when parsing
+    :return: A datetime object
+    :rtype: datetime.date
     """
-    res = ""
+    res = None
     if str_date is not None:
-        try:
-            res = datetime.datetime.strptime(str_date, "%d/%m/%Y")
-        except ValueError:
+        for format_ in formats:
             try:
-                res = datetime.datetime.strptime(str_date, "%d-%m-%Y")
+                res = datetime.datetime.strptime(str_date, format_)
             except ValueError:
-                try:
-                    res = datetime.datetime.strptime(str_date, "%Y-%m-%d")
-                except ValueError:
-                    res = ""
+                pass
+            else:
+                break
     return res
 
 
