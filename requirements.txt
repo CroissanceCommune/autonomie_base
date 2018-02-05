@@ -1,1 +1,6 @@
 pyramid
+unidecode
+SQLAlchemy==1.0.8
+zope.sqlalchemy==0.7.1
+simplejson
+pyramid_mailer
