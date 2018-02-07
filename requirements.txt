@@ -1,3 +1,4 @@
+colander
 pyramid
 unidecode
 SQLAlchemy==1.0.8
