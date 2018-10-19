@@ -14,3 +14,9 @@ def test_str_to_date():
     assert date.str_to_date(None) == None
     assert date.str_to_date("12/11/14", formats=("%y/%m/%d",)) == \
         datetime.datetime(2012, 11, 14)
+
+
+def test_format_duration():
+    assert date.format_duration((12, 12)) == '12h12'
+    assert date.format_duration((12, 00)) == '12h'
+    assert date.format_duration((12, 00), short=False) == '12h00'
