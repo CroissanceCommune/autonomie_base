@@ -25,10 +25,13 @@
 import os
 import datetime
 import time
-from autonomie_base.models.types import CustomFileType
-from autonomie_base.models.types import CustomDateType
-from autonomie_base.models.types import CustomDateType2
-from autonomie_base.models.types import CustomInteger
+from autonomie_base.models.types import (
+    CustomFileType,
+    CustomDateType,
+    CustomDateType2,
+    CustomInteger,
+)
+
 
 def test_bind_customfiletype():
     a = CustomFileType('test_', 255)
