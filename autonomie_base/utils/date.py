@@ -109,3 +109,17 @@ def format_date(date, short=True):
         return format_short_date(date)
     else:
         return format_long_date(date)
+
+
+def format_duration(duration, short=True):
+    """
+    return a pretty print version of a duration.
+
+    :param (int,int) duration: hours,minutes tuple to convert.
+    :param bool short: if True, hide minutes part when it equals zero.
+    """
+    hours, minutes = duration
+    if minutes == 0 and short:
+        return '{}h'.format(hours)
+    else:
+        return '{}h{:02d}'.format(hours, minutes)

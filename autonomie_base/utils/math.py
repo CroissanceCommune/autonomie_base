@@ -43,7 +43,7 @@ def floor_to_precision(
 ):
     """
     floor a value in its int representation:
-        >>> floor_to_thousand(296999)
+        >>> floor_to_precision(296999)
         297000
 
         amounts are of the form : value * 10 ** dialect_precision it allows to
