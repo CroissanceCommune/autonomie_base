@@ -25,10 +25,17 @@
 import os
 import datetime
 import time
-from autonomie_base.models.types import CustomFileType
-from autonomie_base.models.types import CustomDateType
-from autonomie_base.models.types import CustomDateType2
-from autonomie_base.models.types import CustomInteger
+
+import pytest
+
+from autonomie_base.models.types import (
+    CustomFileType,
+    CustomDateType,
+    CustomDateType2,
+    CustomInteger,
+    PersistentACLMixin,
+)
+
 
 def test_bind_customfiletype():
     a = CustomFileType('test_', 255)
@@ -82,3 +89,39 @@ def test_result():
     vala = long(1500)
     valb = 1500
     assert a.process_result_value(vala, "nutt") == valb
+
+
+def test_persistentaclmixin():
+    class ACLMixinSubclass(PersistentACLMixin):
+        pass
+
+    obj = ACLMixinSubclass()
+
+    # AttributeError, if nothing is defined
+    with pytest.raises(AttributeError):
+        obj.__acl__
+
+    # Use __default_acl__, if available
+    ACLMixinSubclass.__default_acl__ = [
+        ('Allow', 'principal', ('add', 'show'))
+    ]
+
+    assert obj.__acl__ == [
+        ('Allow', 'principal', ('add', 'show'))
+    ]
+
+    # Override __default_acl__
+    obj.__acl__ = [
+        ('Deny', 'principal', ('add', 'show'))
+    ]
+
+    assert obj.__acl__ == [
+        ('Deny', 'principal', ('add', 'show'))
+    ]
+
+    # delete __acl__, falling back to __default_acl__
+    del obj.__acl__
+
+    assert obj.__acl__ == [
+        ('Allow', 'principal', ('add', 'show'))
+    ]

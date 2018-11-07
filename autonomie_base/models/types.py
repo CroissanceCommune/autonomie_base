@@ -189,15 +189,32 @@ from pyramid.security import (
     ALL_PERMISSIONS,
 )
 
-class PersistentACLMixin(object):
-    def _get_acl(self):
 
+class PersistentACLMixin(object):
+    """Extend pyramid ACL mechanism to offer row-level ACL
+
+    Subclasses may set the following attributes :
+
+    - ``.__default_acl__`` as an ACL or callable returning an ACL, traditionaly
+      set at class level.
+    - ``.__acl__`` as an ACL or callable returning an ACL, this can be set on
+      class or directly on instance.
+
+    If both are defined, ``__acl__``, the more specific, is prefered.
+
+    Use actual callables, not properties, in subclasses to prevent pyramid from
+    silently ignoring any AttributeError your callable should trigger.
+    """
+    def _get_acl(self):
+        # Any AttributeError raised at this function level would be masked.
+        # See https://github.com/Pylons/pyramid/pull/2613/files
         if getattr(self, '_acl', None) is None:
             if getattr(self, "__default_acl__", None) is not None:
                 return self.__default_acl__
             elif getattr(self, "parent", None) is not None:
                 return self.parent.__acl__
-            raise AttributeError('__acl__')
+            else:
+                raise AttributeError('__acl__')
         return self._acl
 
     def _set_acl(self, value):
